@@ -19,6 +19,8 @@ A lightweight, reusable, framework-agnostic pagination component built using Web
 
 This component supports dynamic page ranges, ellipses for skipped blocks, and emits navigation events to allow integration with your data-fetching or UI update logic.
 
+[NPM Link](https://www.npmjs.com/package/pagination-webcomponent)
+
 ---
 
 ## Live Demo

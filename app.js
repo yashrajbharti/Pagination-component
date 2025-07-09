@@ -76,22 +76,26 @@ export class PaginationComponent extends HTMLElement {
     const container = this.shadowRoot.querySelector("#pagination");
     container.innerHTML = "";
 
-    let lastWasEllipsis = false;
+    const pages = new Set();
+    pages.add(1);
+    pages.add(totalPages);
 
-    const appendButton = (
-      label,
-      callback = null,
-      disabled = false,
-      title = label,
-      isActive = false
-    ) => {
-      if (label === "..." && lastWasEllipsis) return;
+    for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+      if (i > 1 && i < totalPages) {
+        pages.add(i);
+      }
+    }
+
+    const sortedPages = Array.from(pages).sort((a, b) => a - b);
+
+    const appendButton = function (label, callback, disabled, title, isActive) {
       const btn = document.createElement("button");
-      btn.textContent = label;
-      if (title) btn.title = `Navigate to ${title} page`;
+      btn.textContent = label.toString();
+      btn.title = title || `Navigate to ${label} page`;
+
       if (disabled) {
         btn.disabled = true;
-      } else if (callback) {
+      } else if (typeof callback === "function") {
         btn.addEventListener("click", () => {
           callback();
           this.dispatchEvent(
@@ -108,10 +112,10 @@ export class PaginationComponent extends HTMLElement {
           );
         });
       }
+
       if (isActive) btn.classList.add("active");
       container.appendChild(btn);
-      lastWasEllipsis = label === "...";
-    };
+    }.bind(this);
 
     // Prev
     appendButton(
@@ -120,36 +124,29 @@ export class PaginationComponent extends HTMLElement {
         this.current = Math.max(this.current - perPage, 0);
       },
       currentPage === 1,
-      "previous"
+      "previous",
+      false
     );
 
-    // First + ellipsis
-    if (currentPage > 2) {
-      appendButton("1", () => (this.current = 0));
-      if (currentPage > 3) appendButton("...");
-    }
-
-    // Middle neighbors
-    for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-      if (i >= 1 && i <= totalPages) {
-        appendButton(
-          i.toString(),
-          () => (this.current = (i - 1) * perPage),
-          false,
-          `Page ${i}`,
-          i === currentPage
-        );
+    // Page numbers + ellipsis
+    let lastRendered = 0;
+    sortedPages.forEach((page) => {
+      if (lastRendered && page - lastRendered > 1) {
+        appendButton("...", null, true);
       }
-    }
 
-    // Ellipsis + end
-    if (currentPage < totalPages - 2) {
-      if (currentPage < totalPages - 3) appendButton("...");
       appendButton(
-        totalPages.toString(),
-        () => (this.current = (totalPages - 1) * perPage)
+        page,
+        () => {
+          this.current = (page - 1) * perPage;
+        },
+        false,
+        `Page ${page}`,
+        page === currentPage
       );
-    }
+
+      lastRendered = page;
+    });
 
     // Next
     appendButton(
@@ -159,7 +156,8 @@ export class PaginationComponent extends HTMLElement {
         this.current = next >= total ? this.current : next;
       },
       currentPage === totalPages,
-      "next"
+      "next",
+      false
     );
   }
 }

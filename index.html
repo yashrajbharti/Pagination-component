@@ -2,15 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagination component</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination Component Demos</title>
+    <script type="module" src="./app.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <pagination-component current="1" per-page="10" total="100"></pagination-component>
-    <script src="./app.js" type="module"></script>
+    <h1>🚀 Pagination Component Demos</h1>
+
+    <!-- Example 1 -->
+    <section>
+        <h2>Basic Pagination (100 items, 10 per page)</h2>
+        <pagination-component current="0" per-page="10" total="100"></pagination-component>
+        <pre>// offset: 0, limit: 10, total: 100</pre>
+    </section>
+
+    <!-- Example 2 -->
+    <section>
+        <h2>Small List (25 items, 5 per page)</h2>
+        <pagination-component current="5" per-page="5" total="25"></pagination-component>
+        <pre>// offset: 5, limit: 5, total: 25</pre>
+    </section>
+
+    <!-- Example 3 -->
+    <section>
+        <h2>Only One Page (less than per-page)</h2>
+        <pagination-component current="0" per-page="50" total="30"></pagination-component>
+        <pre>// Should render no navigation</pre>
+    </section>
+
+    <!-- Example 4 -->
+    <section>
+        <h2>Edge Case: 0 items</h2>
+        <pagination-component current="0" per-page="10" total="0"></pagination-component>
+        <pre>// Should render nothing</pre>
+    </section>
+
+    <!-- Example 5 -->
+    <section>
+        <h2>Interactive Logging</h2>
+        <pagination-component id="log-example" current="0" per-page="10" total="70"></pagination-component>
+        <pre id="log-output">// Event output will appear here</pre>
+    </section>
+
+    <script>
+        const logOutput = document.getElementById('log-output');
+        const logger = document.getElementById('log-example');
+
+        logger.addEventListener('page-change', (e) => {
+            const { offset, limit, total, totalPages } = e.detail;
+            logOutput.textContent = `// offset: ${offset}, limit: ${limit}, total: ${total}, totalPages: ${totalPages}`;
+        });
+    </script>
 </body>
 
 </html>

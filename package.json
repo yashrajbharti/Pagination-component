@@ -1,0 +1,26 @@
+{
+  "name": "pagination-webcomponent",
+  "version": "1.0.0",
+  "description": "A lightweight, reusable, framework-agnostic pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashrajbharti/Pagination-component.git"
+  },
+  "keywords": [
+    "pagination",
+    "web component",
+    "custom element",
+    "native",
+    "frontend"
+  ],
+  "author": "Yash Raj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yashrajbharti/Pagination-component/issues"
+  },
+  "homepage": "https://yashrajbharti.github.io/Pagination-component/"
+}

@@ -29,13 +29,31 @@ This component supports dynamic page ranges, ellipses for skipped blocks, and em
 
 ## Installation
 
-### Option 1: Module Import
+### Option 1: NPM Package
+
+```zsh
+npm i pagination-webcomponent
+```
+
+then import as
+
+```js
+import ('pagination-webcomponent')
+```
+
+### Option 2: Unpkg
+
+```js
+<script type="module" src="https://unpkg.com/pagination-webcomponent"></script>
+```
+
+### Option 3: Module Import
 
 ```js
 import './PaginationComponent.js';
 ```
 
-### Option 2: HTML Script Tag
+### Option 4: HTML Script Tag
 
 ```html
 <script type="module" src="/path/to/PaginationComponent.js"></script>
@@ -128,8 +146,6 @@ pagination-component {
 ## License
 
 [MIT License © 2025](LICENSE)
-
----
 
 ## Maintainer
 

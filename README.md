@@ -2,9 +2,6 @@
 
 A lightweight, reusable, framework-agnostic pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.
 
-> 🧪 **Live Demo**:
-> 👉 [CodePen – Pagination Component Example](https://codepen.io/driftblaze/pen/gbaYvpG)
-
 ---
 
 ## 📦 Features
@@ -86,7 +83,7 @@ Dispatched whenever the user changes the page.
 
 #### Payload
 
-```json
+```ts
 {
   "offset": Number,      // New offset (e.g., 30)
   "limit": Number,       // Items per page (e.g., 10)

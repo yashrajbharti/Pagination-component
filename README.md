@@ -7,6 +7,16 @@ A lightweight, reusable, framework-independent pagination component built using 
 
 ---
 
+## Description
+
+`<pagination-component>` is a lightweight, reusable Web Component that provides navigational pagination controls for paginated data views. It is framework-agnostic and can be used with any frontend stack including plain HTML/JS, React, Vue, Svelte, etc.
+
+This component supports dynamic page ranges, ellipses for skipped blocks, and emits navigation events to allow integration with your data-fetching or UI update logic.
+
+[NPM Link](https://www.npmjs.com/package/pagination-webcomponent)
+
+---
+
 ## 📦 Features
 
 * 🔌 Native Web Component (no framework needed)
@@ -15,14 +25,6 @@ A lightweight, reusable, framework-independent pagination component built using 
 * 🎨 Styleable via CSS variables
 * ♻️ Reusable across frameworks (React, Vue, Svelte, etc.)
 * 🧠 Auto-handles large lists and intelligent rendering
-
-## Description
-
-`<pagination-component>` is a lightweight, reusable Web Component that provides navigational pagination controls for paginated data views. It is framework-agnostic and can be used with any frontend stack including plain HTML/JS, React, Vue, Svelte, etc.
-
-This component supports dynamic page ranges, ellipses for skipped blocks, and emits navigation events to allow integration with your data-fetching or UI update logic.
-
-[NPM Link](https://www.npmjs.com/package/pagination-webcomponent)
 
 ---
 

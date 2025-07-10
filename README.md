@@ -1,6 +1,9 @@
-# 🚀 `<pagination-component>` – Custom Pagination Web Component
+# 🚀 Pagination UI `<pagination-component>`
 
-A lightweight, reusable, framework-agnostic pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.
+A lightweight, reusable, framework-independent pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.
+
+
+![Pagination](https://github.com/user-attachments/assets/9983ec41-326e-4ab1-b879-f11db7d2a59b)
 
 ---
 

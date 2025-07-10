@@ -55,8 +55,8 @@ header {
 }
 
 .github-corner {
-    fill: #fff;
-    color: #0D080B;
+    fill: var(--md-sys-color-on-background);
+    color: var(--md-sys-color-background);
 }
 
 .github-corner:hover .octocat .arm {

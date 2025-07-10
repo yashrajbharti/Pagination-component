@@ -47,6 +47,42 @@ body {
     padding: 0 20px;
 }
 
+header {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    z-index: 1;
+}
+
+.github-corner {
+    fill: #fff;
+    color: #0D080B;
+}
+
+.github-corner:hover .octocat .arm {
+    animation: wave 560ms ease-in-out;
+}
+
+
+@keyframes wave {
+
+    0%,
+    100% {
+        rotate: 0;
+    }
+
+    20%,
+    60% {
+        rotate: -25deg;
+    }
+
+    40%,
+    80% {
+        rotate: 10deg;
+    }
+}
+
+
 section {
     margin-block-end: 60px;
 }

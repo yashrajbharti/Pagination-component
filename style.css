@@ -48,7 +48,7 @@ body {
 }
 
 header {
-    position: absolute;
+    position: fixed;
     inset-inline-end: 0;
     inset-block-start: 0;
     z-index: 1;

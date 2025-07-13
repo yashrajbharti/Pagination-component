@@ -72,7 +72,7 @@ import './PaginationComponent.js';
 
 ```html
 <pagination-component
-  current="0"
+  offset="0"
   per-page="10"
   total="100"
 ></pagination-component>
@@ -84,7 +84,7 @@ import './PaginationComponent.js';
     // Fetch data using e.detail.offset and e.detail.limit
   });
 </script>
-```
+
 
 ---
 
@@ -92,7 +92,7 @@ import './PaginationComponent.js';
 
 | Attribute  | Type   | Required | Description                               |
 | ---------- | ------ | -------- | ----------------------------------------- |
-| `current`  | Number | ✅        | The current offset (e.g., 0, 10, 20, ...) |
+| `offset`  | Number | ✅        | The current item offset (e.g., 0, 10, 20, ...). Clamped to valid bounds. |
 | `per-page` | Number | ✅        | Number of items per page                  |
 | `total`    | Number | ✅        | Total number of items                     |
 

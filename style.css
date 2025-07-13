@@ -1,44 +1,35 @@
 :root,
 :host {
-    --md-sys-color-background: #181118;
-    --md-sys-color-on-background: #ecdfe8;
-    --md-sys-color-surface: #181118;
-    --md-sys-color-surface-dim: #181118;
-    --md-sys-color-surface-bright: #3f373e;
-    --md-sys-color-surface-container-lowest: #120c12;
-    --md-sys-color-surface-container-low: #201920;
-    --md-sys-color-surface-container: #251d24;
-    --md-sys-color-surface-container-high: #2f282f;
-    --md-sys-color-surface-container-highest: #3a323a;
-    --md-sys-color-on-surface: #ecdfe8;
-    --md-sys-color-surface-variant: #50434f;
-    --md-sys-color-on-surface-variant: #d4c1d0;
-    --md-sys-color-inverse-surface: #ecdfe8;
-    --md-sys-color-inverse-on-surface: #362e35;
-    --md-sys-color-outline: #9c8c9a;
-    --md-sys-color-outline-variant: #50434f;
-    --md-sys-color-shadow: #000000;
-    --md-sys-color-scrim: #000000;
-    --md-sys-color-surface-tint: #faabff;
-    --md-sys-color-primary: #ffcaff;
-    --md-sys-color-on-primary: #570065;
-    --md-sys-color-primary-container: #f08cfa;
-    --md-sys-color-on-primary-container: #470052;
-    --md-sys-color-inverse-primary: #91379f;
-    --md-sys-color-secondary: #e7b7e7;
-    --md-sys-color-on-secondary: #462349;
-    --md-sys-color-secondary-container: #543057;
-    --md-sys-color-on-secondary-container: #f2c1f1;
-    --md-sys-color-tertiary: #ffcfc1;
-    --md-sys-color-on-tertiary: #5a1c06;
-    --md-sys-color-tertiary-container: #f89778;
-    --md-sys-color-on-tertiary-container: #4a1100;
-    --md-sys-color-error: #ffb4ab;
-    --md-sys-color-on-error: #690005;
-    --md-sys-color-error-container: #93000a;
-    --md-sys-color-on-error-container: #ffdad6;
+    --pagination-background: #181118;
+    --pagination-text: #ecdfe8;
+    --pagination-border: #9c8c9a;
+    --pagination-hover: #91379f;
+    --pagination-active-border: #ffcaff;
 }
 
+section:nth-of-type(2) pagination-component {
+    --pagination-background: #f8f9ff;
+    --pagination-text: #191c21;
+    --pagination-border: #717783;
+    --pagination-hover: #a4c9ff;
+    --pagination-active-border: #005193;
+}
+
+section:nth-of-type(3) pagination-component {
+    --pagination-background: #151218;
+    --pagination-text: #e7e0e9;
+    --pagination-border: #958e9c;
+    --pagination-hover: #7049ad;
+    --pagination-active-border: #d5baff;
+}
+
+section:nth-of-type(5) pagination-component {
+    --pagination-background: #f9faed;
+    --pagination-text: #1a1d15;
+    --pagination-border: #747967;
+    --pagination-hover: #abd460;
+    --pagination-active-border: #3d5800;
+}
 
 body {
     font-family: system-ui, sans-serif;
@@ -55,8 +46,8 @@ header {
 }
 
 .github-corner {
-    fill: var(--md-sys-color-on-background);
-    color: var(--md-sys-color-background);
+    fill: var(--pagination-text);
+    color: var(--pagination-background);
 }
 
 .github-corner:hover .octocat .arm {
@@ -93,7 +84,7 @@ h2 {
 }
 
 pre {
-    background: var(--md-sys-color-on-background);
+    background: var(--pagination-text);
     padding: 8px;
     font-size: 0.9rem;
     overflow-x: auto;

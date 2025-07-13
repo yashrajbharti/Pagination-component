@@ -2,7 +2,6 @@
 
 A lightweight, reusable, framework-independent pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.
 
-
 ![Pagination](https://github.com/user-attachments/assets/9983ec41-326e-4ab1-b879-f11db7d2a59b)
 
 ---
@@ -123,20 +122,23 @@ Dispatched whenever the user changes the page.
 
 The component is styled via Shadow DOM and accepts the following CSS custom properties:
 
-| CSS Variable                     | Description                        |
-| -------------------------------- | ---------------------------------- |
-| `--md-sys-color-background`      | Button background                  |
-| `--md-sys-color-on-surface`      | Button text color                  |
-| `--md-sys-color-outline`         | Button border color                |
-| `--md-sys-color-inverse-primary` | Button hover and active background |
-| `--md-sys-color-primary`         | Active page border and text        |
+| CSS Variable                  | Description                        |
+|-------------------------------|------------------------------------|
+| `--pagination-background`     | Button background                  |
+| `--pagination-text`           | Button text color                  |
+| `--pagination-border`         | Button border color                |
+| `--pagination-hover`          | Button hover and active background |
+| `--pagination-active-border`  | Active page border highlight       |
 
 To override them:
 
 ```css
 pagination-component {
-  --md-sys-color-background: white;
-  --md-sys-color-primary: #6366f1;
+    --pagination-background: #181118;
+    --pagination-text: #ecdfe8;
+    --pagination-border: #9c8c9a;
+    --pagination-hover: #91379f;
+    --pagination-active-border: #ffcaff;
 }
 ```
 

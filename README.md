@@ -91,9 +91,9 @@ import './PaginationComponent.js';
 
 | Attribute  | Type   | Required | Description                               |
 | ---------- | ------ | -------- | ----------------------------------------- |
-| `offset`  | Number | ✅        | The current item offset (e.g., 0, 10, 20, ...). Clamped to valid bounds. |
-| `per-page` | Number | ✅        | Number of items per page                  |
-| `total`    | Number | ✅        | Total number of items                     |
+| `offset`   | Number | ✅       | The current item offset (e.g., 0, 10, 20, ...). Clamped to valid bounds. |
+| `per-page` | Number | ✅       | Number of items per page                  |
+| `total`    | Number | ✅       | Total number of items                     |
 
 *All attributes are reflected and can be dynamically updated.*
 

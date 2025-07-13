@@ -9,7 +9,7 @@ export class PaginationComponent extends HTMLElement {
     this.shadowRoot.innerHTML = `
   <style>
     div {
-      text-align: center;
+      text-align: start;
       margin-block-start: 40px;
       margin-block-end: 50px;
     }

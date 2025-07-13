@@ -23,6 +23,7 @@ export class PaginationComponent extends HTMLElement {
       border: 2px solid var(--pagination-border);
       border-radius: 12px;
       font-size: 14px;
+      font-variant-numeric: tabular-nums;
     }
     button:hover:not(:disabled) {
       background: var(--pagination-hover);
@@ -68,30 +69,36 @@ export class PaginationComponent extends HTMLElement {
     return Math.ceil(this.total / this.perPage);
   }
   getPaginationItems(currentPage, totalPages) {
-    let maxButtons = 5; // fixed visible items (first + last + up to 5 middle)
-    if (totalPages <= maxButtons) {
+    const maxItems = 7;
+    if (totalPages <= maxItems) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    const firstPage = 1;
-    const lastPage = totalPages;
+    const pages = [];
 
-    const pages = [firstPage];
-    const remainingSlots = maxButtons - 2; // minus first + last
+    const first = 1;
+    const last = totalPages;
 
-    let start = currentPage - Math.floor(remainingSlots / 2);
-    let end = currentPage + Math.floor(remainingSlots / 2);
+    const siblings = 1; // one page on each side
+    let start = currentPage - siblings;
+    let end = currentPage + siblings;
 
+    // Clamp start/end within valid ranges
     if (start < 2) {
       start = 2;
-      end = start + remainingSlots - 1;
+      end = start + 2;
     }
-
     if (end > totalPages - 1) {
       end = totalPages - 1;
-      start = end - remainingSlots + 1;
+      start = end - 2;
     }
 
+    // Build range
+    pages.push(first);
+
+    if (end === totalPages - 1) {
+      pages.push(2);
+    }
     if (start > 2) {
       pages.push("...");
     }
@@ -103,8 +110,21 @@ export class PaginationComponent extends HTMLElement {
     if (end < totalPages - 1) {
       pages.push("...");
     }
+    if (start === 2) {
+      pages.push(totalPages - 1);
+    }
 
-    pages.push(lastPage);
+    pages.push(last);
+
+    // Enforce length = 7 (by removing from middle if needed)
+    while (pages.length > maxItems) {
+      if (pages.includes("...")) {
+        const i = pages.indexOf("...");
+        pages.splice(i, 1);
+      } else {
+        pages.splice(pages.length - 2, 1); // fallback
+      }
+    }
 
     return pages;
   }

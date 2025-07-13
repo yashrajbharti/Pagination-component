@@ -1,6 +1,6 @@
 export class PaginationComponent extends HTMLElement {
   static get observedAttributes() {
-    return ["current", "per-page", "total"];
+    return ["offset", "per-page", "total"];
   }
 
   constructor() {
@@ -45,12 +45,12 @@ export class PaginationComponent extends HTMLElement {
     this.render();
   }
 
-  get current() {
-    return parseInt(this.getAttribute("current")) || 0;
+  get offset() {
+    return parseInt(this.getAttribute("offset")) || 0;
   }
 
-  set current(val) {
-    this.setAttribute("current", val);
+  set offset(val) {
+    this.setAttribute("offset", val);
   }
 
   get perPage() {
@@ -71,8 +71,17 @@ export class PaginationComponent extends HTMLElement {
 
     if (perPage <= 0 || total <= 0) return;
 
-    const currentPage = Math.floor(this.current / perPage) + 1;
+    const maxOffset = (this.totalPages - 1) * perPage;
+    const clampedOffset = Math.max(0, Math.min(this.offset, maxOffset));
+
+    if (clampedOffset !== this.offset) {
+      this.offset = clampedOffset;
+      return;
+    }
+
+    const currentPage = Math.floor(this.offset / perPage) + 1;
     const totalPages = this.totalPages;
+
     const container = this.shadowRoot.querySelector("#pagination");
     container.innerHTML = "";
 
@@ -101,13 +110,14 @@ export class PaginationComponent extends HTMLElement {
           this.dispatchEvent(
             new CustomEvent("page-change", {
               detail: {
-                offset: this.current,
+                page: Math.floor(this.offset / this.perPage) + 1,
+                offset: this.offset,
                 limit: this.perPage,
                 total: this.total,
-                totalPages: this.totalPages,
+                totalPages: this.totalPages
               },
               bubbles: true,
-              composed: true,
+              composed: true
             })
           );
         });
@@ -121,10 +131,10 @@ export class PaginationComponent extends HTMLElement {
     appendButton(
       "‹",
       () => {
-        this.current = Math.max(this.current - perPage, 0);
+        this.offset = Math.max(this.offset - perPage, 0);
       },
       currentPage === 1,
-      "previous",
+      "Previous",
       false
     );
 
@@ -138,7 +148,7 @@ export class PaginationComponent extends HTMLElement {
       appendButton(
         page,
         () => {
-          this.current = (page - 1) * perPage;
+          this.offset = (page - 1) * perPage;
         },
         false,
         `Page ${page}`,
@@ -152,11 +162,11 @@ export class PaginationComponent extends HTMLElement {
     appendButton(
       "›",
       () => {
-        const next = this.current + perPage;
-        this.current = next >= total ? this.current : next;
+        const nextOffset = this.offset + perPage;
+        this.offset = nextOffset >= total ? this.offset : nextOffset;
       },
       currentPage === totalPages,
-      "next",
+      "Next",
       false
     );
   }

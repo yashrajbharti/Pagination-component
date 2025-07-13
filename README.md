@@ -84,7 +84,7 @@ import './PaginationComponent.js';
     // Fetch data using e.detail.offset and e.detail.limit
   });
 </script>
-
+```
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "name": "pagination-webcomponent",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "A lightweight, reusable, framework-agnostic pagination component built using Web Components (Custom Elements + Shadow DOM). Easily integrates into any HTML/JS app with no external dependencies.",
   "main": "app.js",
   "scripts": {

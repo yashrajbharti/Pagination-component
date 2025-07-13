@@ -24,6 +24,9 @@ export class PaginationComponent extends HTMLElement {
       border-radius: 12px;
       font-size: 14px;
       font-variant-numeric: tabular-nums;
+      min-inline-size: 50px;  
+      min-block-size: 45px;     
+      text-align: center;        
     }
     button:hover:not(:disabled) {
       background: var(--pagination-hover);
@@ -35,6 +38,7 @@ export class PaginationComponent extends HTMLElement {
     button.active {
       background: var(--pagination-hover);
       border-color: var(--pagination-active-border);
+      color: var(--pagination-active-color);
       font-weight: bold;
     }
   </style>

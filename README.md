@@ -129,6 +129,7 @@ The component is styled via Shadow DOM and accepts the following CSS custom prop
 | `--pagination-border`         | Button border color                |
 | `--pagination-hover`          | Button hover and active background |
 | `--pagination-active-border`  | Active page border highlight       |
+| `--pagination-active-color`   | Active button text color           |
 
 To override them:
 
@@ -139,6 +140,7 @@ pagination-component {
     --pagination-border: #9c8c9a;
     --pagination-hover: #91379f;
     --pagination-active-border: #ffcaff;
+    --pagination-active-color: #ecdfe8;
 }
 ```
 

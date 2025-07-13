@@ -5,6 +5,7 @@
     --pagination-border: #9c8c9a;
     --pagination-hover: #91379f;
     --pagination-active-border: #ffcaff;
+    --pagination-active-color: #ecdfe8;
 }
 
 section:nth-of-type(2) pagination-component {
@@ -13,6 +14,7 @@ section:nth-of-type(2) pagination-component {
     --pagination-border: #717783;
     --pagination-hover: #a4c9ff;
     --pagination-active-border: #005193;
+    --pagination-active-color: #191c21;
 }
 
 section:nth-of-type(3) pagination-component {
@@ -21,6 +23,7 @@ section:nth-of-type(3) pagination-component {
     --pagination-border: #958e9c;
     --pagination-hover: #7049ad;
     --pagination-active-border: #d5baff;
+    --pagination-active-color: #e7e0e9;
 }
 
 section:nth-of-type(5) pagination-component {
@@ -29,6 +32,7 @@ section:nth-of-type(5) pagination-component {
     --pagination-border: #747967;
     --pagination-hover: #abd460;
     --pagination-active-border: #3d5800;
+    --pagination-active-color: #1a1d15;
 }
 
 body {

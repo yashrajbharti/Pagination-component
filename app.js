@@ -114,10 +114,10 @@ export class PaginationComponent extends HTMLElement {
                 offset: this.offset,
                 limit: this.perPage,
                 total: this.total,
-                totalPages: this.totalPages
+                totalPages: this.totalPages,
               },
               bubbles: true,
-              composed: true
+              composed: true,
             })
           );
         });
